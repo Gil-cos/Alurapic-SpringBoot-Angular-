@@ -1,3 +1,13 @@
-<ap-header></ap-header>
-<router-outlet></router-outlet>
-<ap-footer></ap-footer>
+<app-layout>
+    <mat-sidenav-container>
+        <mat-sidenav #sidenav role="navigation">
+            <app-sidenav-list (sidenavClose)="sidenav.close()"></app-sidenav-list>
+        </mat-sidenav>
+        <mat-sidenav-content>
+            <ap-header (sidenavToggle)="sidenav.toggle()"></ap-header>
+            <main>
+                <router-outlet></router-outlet>
+            </main>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+</app-layout>

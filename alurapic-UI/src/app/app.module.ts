@@ -1,11 +1,13 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
-
-import { PhotosModule } from './photos/photos.module';
 import { AppRoutingModule } from './app.routing.module';
-import { ErrorsModule } from './errors/errors.module';
 import { CoreModule } from './core/core.module';
+import { ErrorsModule } from './errors/errors.module';
+import { PhotosModule } from './photos/photos.module';
+import { SharedModule } from './shared/shared.module';
+
 
 @NgModule({
   declarations: [
@@ -13,10 +15,12 @@ import { CoreModule } from './core/core.module';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     PhotosModule,
     ErrorsModule,
     CoreModule,
-    AppRoutingModule,
+    SharedModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

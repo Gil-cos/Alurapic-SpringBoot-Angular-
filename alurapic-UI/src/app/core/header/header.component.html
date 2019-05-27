@@ -1,34 +1,39 @@
-<header class="fixed-top">
+<mat-toolbar color="primary">
+    <div fxHide.gt-xs>
+        <button mat-icon-button (click)="onToggleSidenav()">
+            <mat-icon>menu</mat-icon>
+        </button>
+    </div>
+    <div>
+        <a [routerLink]="['home']">AluraPic</a>
+    </div>
+    <div fxFlex fxLayout fxLayoutAlign="end" fxHide.xs>
+        <ul fxLayout fxLayoutGap="15px" class="navigation-items">
+            <li>
+                <div showIfLogged >
+                    <a [routerLink]="['p', 'add']">
+                        <mat-icon class="icons">backup</mat-icon> <span> Photo Upload</span>
+                    </a>
+                </div>
+            </li>
+            <li>
+                <div *ngIf="(user$ | async) as user; else login">
+                    <a (click)="logout()">
+                        <mat-icon class="icons">account_circle</mat-icon> <span> {{ user.name }} (Logout)</span>
+                    </a>
+                </div>
 
-    <nav class="navbar navbar-light bg-white">
-        <a class="navbar-brand">
-            <i tabindex="0" (keyup.space)="menu.toggle()" (click)="menu.toggle()" class="fa fa-bars mr-2"></i>
-            ALURAPIC
-        </a>
-        
-        <ap-menu #menu>
-            <ul class="list-unstyled">
-                <li>
-                    <a showIfLogged [routerLink]="['p','add']">Upload</a>
-                </li>
-            </ul>
-        </ap-menu>
+                <ng-template #login>
+                    <span class="navbar-text">
+                        <a [routerLink]="['']">Please, login!</a>
+                    </span>
+                </ng-template>
+            </li>
+        </ul>
 
-        <div *ngIf="(user$ | async) as user; else login">
-            <i class="fa fa-user-circle mr-1"></i>
-            <a class="mr-1">{{ user.name}}</a>
-            <a (click)="logout()">(Logout)</a>
-        </div>
-
-        <ng-template #login>
-            <span class="navbar-text">
-                <a [routerLink]="['']">Please, login!</a>
-            </span>
-        </ng-template> 
-    </nav>
+    </div>
     <div class="fixed-top">
         <ap-loading></ap-loading>
         <ap-alert></ap-alert>
     </div>
-</header>
-
+</mat-toolbar>
