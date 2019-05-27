@@ -1,21 +1,19 @@
-<div class="container">
-    <div class="row">
-        <div class="col-md-6 mb-2">
-            <img class="img-fluid d-none d-sm-block" 
-                src="/assets/img/home.jpg" alt="Welcome">
-        </div>
-        <div class="col-md-6">
+<section fxLayout="row" fxLayoutAlign="space-around center">
+
+    <mat-card class="card">
+        <mat-card-content>
+            <div fxFlex="60">
+                <div class="imagem">
+                    <img src="/assets/img/home.jpg" alt="Welcome">
+                </div>
+            </div>
+        </mat-card-content>
+    </mat-card>
+
+    <div fxFlex="40">
+        <div class="login">
             <router-outlet></router-outlet>
         </div>
     </div>
-</div>
 
-<section fxLayout="row" fxLayoutAlign="space-around center" >
-
-        <div>
-            <span>1</span>
-        </div>
-        <div>
-            <span>2</span>
-        </div>
-      </section>
+</section>

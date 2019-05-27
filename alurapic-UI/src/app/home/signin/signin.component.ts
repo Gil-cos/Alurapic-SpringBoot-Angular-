@@ -9,7 +9,8 @@ import { CurrentUser } from '../../core/model/CurrentUser';
 
 
 @Component({
-    templateUrl: './signin.component.html'
+    templateUrl: './signin.component.html',
+    styleUrls: ['./signin.component.css']
 })
 export class SignInComponent implements OnInit {
 

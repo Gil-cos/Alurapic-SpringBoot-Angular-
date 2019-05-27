@@ -1,16 +1,17 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-
-import { lowerCaseValidator } from '../../shared/validators/lower-case.validator';
-import { UserNotTakenValidatorService } from './user-not-taken.validator.service';
 import { NewUser } from '../../core/model/NewUser';
-import { SignUpService } from './signup.service';
 import { PlatformDetectorService } from '../../core/plataform-detector/platform-detector.service';
+import { lowerCaseValidator } from '../../shared/validators/lower-case.validator';
+import { SignUpService } from './signup.service';
+import { UserNotTakenValidatorService } from './user-not-taken.validator.service';
 import { userNamePassword } from './username-password.validator';
+
 
 @Component({
     templateUrl: './signup.component.html',
+    styleUrls: ['./signup.component.css'],
     providers: [UserNotTakenValidatorService]
 })
 export class SignUpComponent implements OnInit {

@@ -1,38 +1,50 @@
-<h4 class="text-center">Login</h4>
+<mat-card>
+        <mat-card-title fxLayoutAlign="center center">Login</mat-card-title>
+        <mat-card-content>
 
-<form [formGroup]="loginForm" class="form mt-4" (submit)="login()">
+            <form [formGroup]="loginForm">
 
-    <div class="form-group">
-        <input #userNameInput
-            formControlName="userName" 
-            class="form-control" 
-            placeholder="user name" 
-            autofocus>
-        <ap-vmessage 
-            *ngIf="loginForm.get('userName').errors?.required"
-            text="User name is required!">
-        </ap-vmessage>        
-    </div>
+                <div>
+                    <mat-form-field>
+                        <input matInput #userNameInput
+                        placeholder="User name" 
+                        formControlName="userName"
+                        autofocus>
+                    </mat-form-field>
+                    <ap-vmessage 
+                        *ngIf="loginForm.get('userName').errors?.required"
+                        text="User name is required!">
+                    </ap-vmessage>        
+                </div>
+            
+                <div>
+                    <mat-form-field>
+                        <input matInput #userNameInput
+                        placeholder="Password" 
+                        formControlName="password"
+                        type="password">
+                    </mat-form-field>
+                    <ap-vmessage
+                        *ngIf="loginForm.get('password').errors?.required"
+                        text="Password is required!">
+                    </ap-vmessage>               
+                </div>
+                
+                </form>
+    
+        </mat-card-content>
+    
+        <mat-card-actions align="start">
 
-    <div class="form-group">
-        <input
-            formControlName="password" 
-            type="password" 
-            class="form-control" 
-            placeholder="password">
-        <ap-vmessage
-            *ngIf="loginForm.get('password').errors?.required"
-            text="Password is required!">
-        </ap-vmessage>               
-    </div>
+            <button mat-raised-button color="primary"
+                [disabled]="loginForm.invalid" 
+                (click)="login()">
+                login
+            </button>
+        
+        </mat-card-actions>
+    
+        <p>Not a user? <a [routerLink]="['signup']">Register now</a></p>
+</mat-card>
 
-    <button 
-        [disabled]="loginForm.invalid" 
-        type="submit" 
-        class="btn btn-primary btn-block">
-        login
-    </button>
 
-</form>
-
-<p>Not a user? <a [routerLink]="['signup']">Register now</a></p>
