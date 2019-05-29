@@ -1,0 +1,14 @@
+.card {
+    height: 80%;
+    width: 80%;
+    margin-bottom: 1%;
+}
+@media screen and (min-width: 599px) {
+    .card {
+        height: 80%;
+        width: 80%;
+        margin-top: 2%;
+        margin-right: 2%;
+        margin-bottom: 0%;
+    }
+}

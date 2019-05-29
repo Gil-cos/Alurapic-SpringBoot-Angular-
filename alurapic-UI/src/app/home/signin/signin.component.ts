@@ -1,11 +1,12 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { UserService } from 'src/app/core/user/user.service';
 import { UserAuthenticated } from 'src/app/core/model/UserAuthenticated';
+import { PlatformDetectorService } from 'src/app/core/plataform-detector/platform-detector.service';
+import { UserService } from 'src/app/core/user/user.service';
 import { AuthService } from '../../core/auth/auth.service';
-import { PlatformDetectorService } from '../../core/plataform-detector/platform-detector.service';
 import { CurrentUser } from '../../core/model/CurrentUser';
+
 
 
 @Component({

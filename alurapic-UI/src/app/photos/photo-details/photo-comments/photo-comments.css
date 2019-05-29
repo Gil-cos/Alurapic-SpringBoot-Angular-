@@ -1,4 +1,18 @@
 .comment-list {
-    height: 50vh;
+    height: 45vh;
     overflow-y: auto;
+}
+
+button {
+    height: 100%;
+    margin-top: 4%;
+    margin-left: 1%;    
+}
+
+@media screen and (max-width: 599px) {
+    button {
+        height: 100%;
+        margin-top: 5%;
+        margin-left: 1%;    
+    }
 }

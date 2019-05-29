@@ -1,16 +1,16 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
 import { Observable } from "rxjs";
+import { Like } from 'src/app/core/model/Like';
+import { Photo } from "../../core/model/photo";
 import { UserService } from "../../core/user/user.service";
 import { AlertService } from "../../shared/components/alert/alert.service";
-import { Photo } from "../../core/model/photo";
 import { PhotoService } from "../photo/photo.service";
-import { Like } from 'src/app/core/model/Like';
-import { ResponseApi } from '../../core/model/ResponseApi';
 
 
 @Component({
-    templateUrl: './photo-details.component.html'
+    templateUrl: './photo-details.component.html',
+    styleUrls: ['./photo-details.component.css']
 })
 export class PhotoDetailsComponent implements OnInit {
 
