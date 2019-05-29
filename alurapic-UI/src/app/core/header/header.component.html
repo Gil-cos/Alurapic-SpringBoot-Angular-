@@ -10,7 +10,7 @@
     <div fxFlex fxLayout fxLayoutAlign="end" fxHide.xs>
         <ul fxLayout fxLayoutGap="15px" class="navigation-items">
             <li>
-                <div showIfLogged >
+                <div showIfLogged>
                     <a [routerLink]="['p', 'add']">
                         <mat-icon class="icons">backup</mat-icon> <span> Photo Upload</span>
                     </a>
@@ -32,8 +32,8 @@
         </ul>
 
     </div>
-    <div class="fixed-top">
-        <ap-loading></ap-loading>
-        <ap-alert></ap-alert>
-    </div>
 </mat-toolbar>
+<div>
+    <ap-loading></ap-loading>
+    <ap-alert></ap-alert>
+</div>
