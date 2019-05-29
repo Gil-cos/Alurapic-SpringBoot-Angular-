@@ -1,9 +1,9 @@
 <mat-card>
-    <mat-card-title fxLayoutAlign="center center">Register to embrace a new world!</mat-card-title>
+    <mat-card-title fxLayoutAlign="center">Register to embrace a new world!</mat-card-title>
     <mat-card-content>
 
         <form #form="ngForm" [formGroup]="signupForm" class="form mt-4">
-            <div class="form-group">
+            <div class="form-group" fxLayout="column">
                 <mat-form-field>
                     <input matInput #emailInput
                     placeholder="Email" 
@@ -20,7 +20,7 @@
                 </ap-vmessage>            
             </div>
 
-            <div class="form-group">
+            <div class="form-group" fxLayout="column">
                 <mat-form-field>
                     <input matInput
                     placeholder="Full Name" 
@@ -40,7 +40,7 @@
                 </ap-vmessage>              
             </div>
 
-            <div class="form-group">
+            <div class="form-group" fxLayout="column">
                 <mat-form-field>
                     <input matInput
                     placeholder="User Name" 
@@ -70,7 +70,7 @@
                 <small *ngIf="signupForm.get('userName').valid" class="text-success"> User available</small>
             </div>
 
-            <div class="form-group">
+            <div class="form-group" fxLayout="column">
                 <mat-form-field>
                     <input matInput
                     placeholder="Password" 

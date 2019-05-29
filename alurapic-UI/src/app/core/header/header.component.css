@@ -3,10 +3,6 @@ a {
     color: white;
 }
  
-a:hover, a:active{
-    color: lightgray;
-}
- 
 .navigation-items{
     list-style-type: none;
     padding: 0;
@@ -18,15 +14,9 @@ a:hover, a:active{
 }
  
 mat-toolbar{
-    border-radius: 3px;
-}
- 
-@media(max-width: 959px){
-    mat-toolbar{
-        border-radius: 0px;
-    }
+    border-radius: 0px;
 }
 
 span {
-    font-size: 20px;
+    font-size: 70%;
 }

@@ -1,19 +1,13 @@
-<section fxLayout="row" fxLayoutAlign="space-around center">
+<section fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center">
 
-    <mat-card class="card">
-        <mat-card-content>
-            <div fxFlex="60">
-                <div class="imagem">
-                    <img src="/assets/img/home.jpg" alt="Welcome">
-                </div>
-            </div>
-        </mat-card-content>
-    </mat-card>
+    <div fxFlex="60" fxFlexAlign="center" fxHide.xs>
+        <mat-card class="card">
+            <img mat-card-image src="/assets/img/home.jpg">
+        </mat-card>
+    </div>
 
-    <div fxFlex="40">
-        <div class="login">
-            <router-outlet></router-outlet>
-        </div>
+    <div  fxFlex="40" class="login">
+        <router-outlet></router-outlet>
     </div>
 
 </section>
