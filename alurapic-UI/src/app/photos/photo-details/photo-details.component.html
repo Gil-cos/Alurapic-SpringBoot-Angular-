@@ -2,25 +2,38 @@
     *ngIf="(photo$ | async) as photo">
 
     <div fxFlex="50%" fxLayoutAlign="center">
-        <ap-photo [url]="photo.url" [description]="photo.description"></ap-photo>
+        <ap-photo [url]="photo.url" [description]="photo.description" class="z-depth-3"></ap-photo>
     </div>
 
     <div fxFlex="40%" class="inputs">
 
-        <mat-card>
+        <mat-card class="z-depth-3">
 
             <mat-card-title fxLayoutAlign="start">{{ photo.description }}</mat-card-title>
 
             <mat-card-content>
 
-                <small>
-                    <div>
-                        <mat-icon (click)="liked(photo)" showIfLogged>favorite_border</mat-icon> {{ photo.likes }}
-                        <mat-icon>comment</mat-icon> {{ photo.comments }}
-                        <mat-icon photoOwnerOnly [ownedPhoto]="photo" (click)="remove()">delete</mat-icon>
+                <div fxLayout="row" >
+                    <div fxFlex="10%" *ngIf="photoIsLiked;else favorite">
+                        <mat-icon (click)="liked(photo)" color="accent" showIfLogged>favorite</mat-icon>
+                        {{ photo.likes }}
                     </div>
-                    <hr>
-                </small>
+                    <ng-template #favorite>
+                        <div fxFlex="10%">
+                            <mat-icon (click)="liked(photo)" showIfLogged>favorite_border</mat-icon>
+                            {{ photo.likes }}
+                        </div>
+                    </ng-template>
+
+                    <div fxFlex="20%">
+                        <mat-icon>comment</mat-icon> {{ photo.comments }}
+                    </div>
+                    <div fxFlex="80%" fxLayoutAlign="end">
+                        <mat-icon photoOwnerOnly [ownedPhoto]="photo" (click)="remove()">
+                            delete</mat-icon>
+                    </div>
+                </div>
+                <hr>
 
                 <ap-photo-comments *ngIf="photo.allowComments; else warnning" [photoId]="photoId">
                 </ap-photo-comments>

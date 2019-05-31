@@ -17,6 +17,7 @@ export class PhotoDetailsComponent implements OnInit {
     photo$: Observable<Photo>;
     photoId: number;
     like = new Like(0, null, null);
+    photoIsLiked: boolean;
 
     constructor(
         private route: ActivatedRoute,
@@ -29,6 +30,11 @@ export class PhotoDetailsComponent implements OnInit {
     ngOnInit(): void {
         this.photoId = this.route.snapshot.params.photoId;
         this.photo$ = this.photoService.findById(this.photoId);
+
+        this.photoService.photoLiked(this.photoId)
+            .subscribe(photoIsLiked => this.photoIsLiked = photoIsLiked);
+
+
         this.photo$.subscribe(() => { }, err => {
             console.log(err);
             this.router.navigate(['not-found']);
@@ -55,11 +61,13 @@ export class PhotoDetailsComponent implements OnInit {
             .subscribe(response => {
                 if (response['data']) {
                     this.photo$ = this.photoService.findById(photo.id);
+                    this.photoService.photoLiked(this.photoId)
+                        .subscribe(photoIsLiked => this.photoIsLiked = photoIsLiked);
                 }
             },
-            err => {
-                console.log(err['error']['errors'][0]);
-                this.alertService.warning(err['error']['errors'][0], true);
-            });
+                err => {
+                    console.log(err['error']['errors'][0]);
+                    this.alertService.warning(err['error']['errors'][0], true);
+                });
     }
 }

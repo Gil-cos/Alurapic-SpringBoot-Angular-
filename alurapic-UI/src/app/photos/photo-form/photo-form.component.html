@@ -1,4 +1,4 @@
-<form fxLayout="row" fxLayoutAlign="space-evenly none" [formGroup]="photoForm" (submit)="upload()">
+<form fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-evenly none" [formGroup]="photoForm" (submit)="upload()">
 
   <div fxFlex="40%">
 
@@ -27,7 +27,7 @@
 
   <div fxFlex="40%" class="inputs" fxLayout="column">
 
-    <mat-card>
+    <mat-card class="z-depth-3">
       <mat-card-content fxLayout="column">
 
         <mat-form-field fxFlex="80%">

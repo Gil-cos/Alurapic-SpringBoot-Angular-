@@ -1,22 +1,39 @@
-<p class="text-center text-muted" *ngIf="!photos.length"> 
+<p class="text-center text-muted" *ngIf="!photos.length">
     Sorry, no photos
 </p>
+<div class="img-card" fxLayout="row wrap" fxLayout.xs="column" fxLayoutGap="5%" fxLayoutAlign="start center" fxLayoutAlign.xs="center center">
+    <div fxflex="33%" *ngFor="let photo of photos">
+        <a [routerLink]="['/p', photo.id]">
 
-<ol class="list-unstyled">
-    <li *ngFor="let cols of rows" class="row no-gutters p-0">
-        <div *ngFor="let photo of cols" class="col-4" apDarkenOnHover>
-            <a [routerLink]="['/p', photo.id]">
-                <ap-card>
-                    <ap-photo 
-                        [url]="photo.url" 
-                        [description]="photo.description">
-                    </ap-photo>
-                    <div class="text-center p-1">
-                        <i aria-hidden="true" class="fa fa-heart-o fa-1x mr-2"></i>{{ photo.likes }}   
-                        <i aria-hidden="true" class="fa fa-comment-o fa-1x mr-2 ml-2"></i>{{ photo.comments }} 
-                    </div>              
-                </ap-card>
-            </a>
-        </div>
-    </li>
-</ol>
+            <mat-card fxLayout="column" fxLayoutGap="2%" class="z-depth-3">
+
+                <mat-card-header>
+                    <mat-card-title>{{ photo.description }}</mat-card-title>
+                </mat-card-header>
+
+                <ap-photo [url]="photo.url" [description]="photo.description">
+                </ap-photo>
+
+                <mat-card-footer>
+                    <div fxLayout="row" fxLayoutGap="1%" fxLayoutAlign="center">
+                        <div fxFlex="15%" *ngIf="photoIsLiked;else favorite">
+                            <mat-icon (click)="liked(photo)" color="accent" showIfLogged>favorite</mat-icon>
+                            {{ photo.likes }}
+                        </div>
+                        <ng-template #favorite>
+                            <div fxFlex="15%">
+                                <mat-icon (click)="liked(photo)" showIfLogged>favorite_border</mat-icon>
+                                {{ photo.likes }}
+                            </div>
+                        </ng-template>
+
+                        <div fxFlex="15%">
+                            <mat-icon>comment</mat-icon> {{ photo.comments }}
+                        </div>
+                    </div>
+                </mat-card-footer>
+
+            </mat-card>
+        </a>
+    </div>
+</div>

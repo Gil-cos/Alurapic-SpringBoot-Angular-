@@ -1,38 +1,35 @@
-<mat-card class="card">
+<mat-card class="z-depth-3 inputs">
 
     <mat-card-title fxLayoutAlign="center">Login</mat-card-title>
-
     <mat-card-content>
 
-        <form [formGroup]="loginForm">
+        <form [formGroup]="loginForm" fxLayout="column" fxLayoutGap="3%">
 
-            <div fxLayout="column">
+            <div fxLayout="column" fxLayoutGap="-2.5%">
                 <mat-form-field>
                     <input matInput #userNameInput placeholder="User name" formControlName="userName" autofocus>
                 </mat-form-field>
-                <ap-vmessage *ngIf="loginForm.get('userName').errors?.required" text="User name is required!">
-                </ap-vmessage>
+                <mat-error *ngIf="loginForm.get('userName').errors?.required && (loginForm.submitted || loginForm.get('userName').touched)">
+                    User name is <Strong>required!</Strong>
+                </mat-error>
             </div>
 
-            <div fxLayout="column">
+            <div fxLayout="column" fxLayoutGap="-2.5%">
                 <mat-form-field>
                     <input matInput #userNameInput placeholder="Password" formControlName="password" type="password">
                 </mat-form-field>
-                <ap-vmessage *ngIf="loginForm.get('password').errors?.required" text="Password is required!">
-                </ap-vmessage>
+                <mat-error *ngIf="loginForm.get('password').errors?.required && (loginForm.submitted || loginForm.get('password').touched)">
+                    Password is <Strong>required!</Strong>
+                </mat-error>
             </div>
-
+            
+            <button mat-raised-button color="primary" [disabled]="loginForm.invalid" (click)="login()">
+                login
+            </button>
+        
         </form>
 
     </mat-card-content>
-
-    <mat-card-actions>
-
-        <button mat-raised-button color="primary" [disabled]="loginForm.invalid" (click)="login()">
-            login
-        </button>
-
-    </mat-card-actions>
 
     <p>Not a user? <a [routerLink]="['signup']">Register now</a></p>
 </mat-card>

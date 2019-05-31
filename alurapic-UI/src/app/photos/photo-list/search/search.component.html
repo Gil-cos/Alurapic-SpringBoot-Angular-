@@ -1,7 +1,7 @@
 <section fxLayout="column" fxLayoutAlign="space-around center" class="search">
         <form>
             <mat-form-field>
-                <input matInput 
+                <input matInput
                 placeholder="Search..." 
                 autofocus
                 (keyup)="debounce.next($event.target.value)"

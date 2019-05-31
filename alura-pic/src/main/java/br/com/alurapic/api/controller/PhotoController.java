@@ -167,6 +167,15 @@ public class PhotoController {
 		return ResponseEntity.ok(response);
 	}
 
+	@GetMapping("/{photoId}/liked")
+	@PreAuthorize("hasAnyRole('CUSTOMER')")
+	public boolean photoLiked(@PathVariable Long photoId, HttpServletRequest request) {
+
+		User user = userFromRequest(request);
+
+		return likeService.photoLiked(photoId, user.getId());
+	}
+
 	@GetMapping("/image/{filename}")
 	@ResponseBody
 	public ResponseEntity<Resource> getFile(@PathVariable String filename) {

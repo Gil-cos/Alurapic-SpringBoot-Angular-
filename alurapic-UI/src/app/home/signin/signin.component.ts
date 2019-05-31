@@ -7,8 +7,6 @@ import { UserService } from 'src/app/core/user/user.service';
 import { AuthService } from '../../core/auth/auth.service';
 import { CurrentUser } from '../../core/model/CurrentUser';
 
-
-
 @Component({
     templateUrl: './signin.component.html',
     styleUrls: ['./signin.component.css']

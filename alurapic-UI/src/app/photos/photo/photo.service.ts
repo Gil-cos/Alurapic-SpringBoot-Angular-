@@ -80,4 +80,9 @@ export class PhotoService {
         );
     }
 
+    photoLiked(photoId: number) {
+
+        return this.http.get<boolean>(`${API}/api/photo/${photoId}/liked`);
+    }
+
 }
