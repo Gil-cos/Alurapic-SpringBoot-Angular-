@@ -1,12 +1,14 @@
-.card {
-    height: 80%;
-    width: 80%;
+.inputs {
+    height: 100%;
+    width: 100%;
     margin-bottom: 1%;
 }
+
+
 @media screen and (min-width: 599px) {
-    .card {
-        height: 80%;
-        width: 80%;
+    .inputs {
+        height: 100%;
+        width: 100%;
         margin-top: 2%;
         margin-right: 2%;
         margin-bottom: 0%;

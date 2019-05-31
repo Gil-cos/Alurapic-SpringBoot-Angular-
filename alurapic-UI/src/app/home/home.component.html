@@ -1,12 +1,10 @@
 <section fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center">
 
-    <div fxFlex="60" fxFlexAlign="center" fxHide.xs>
-        <mat-card class="card">
-            <img mat-card-image src="/assets/img/home.jpg">
-        </mat-card>
+    <div class="img-card" fxFlex="60" fxFlexAlign="center" fxHide.xs>
+        <img class="img-home" mat-card-image src="/assets/img/home.jpg">
     </div>
 
-    <div  fxFlex="40" class="login">
+    <div fxFlex="40" class="login">
         <router-outlet></router-outlet>
     </div>
 

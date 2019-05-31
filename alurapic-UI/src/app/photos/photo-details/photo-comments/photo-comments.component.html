@@ -13,20 +13,20 @@
         </div>
     </section>
     <section fxLayout="column" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="5%" fxLayoutAlign="center">
-        <div>
-            <form [formGroup]="commentForm" (submit)="save()">
-                <div>
-                    <mat-form-field fxFlex="80%" fxFlex.xs="70%">
-                        <textarea formControlName="comment" matInput></textarea>
-                    </mat-form-field>
-                    <button mat-raised-button color="primary" [disabled]="commentForm.invalid" type="submit"
-                        fxFlex="20%" fxFlex.xs="30%">
-                        Publish
-                    </button>
-                </div>
-                <ap-vmessage text="Maximun size allowed is 300" *ngIf="commentForm.get('comment').errors?.maxlength">
-                </ap-vmessage>
-            </form>
-        </div>
+
+        <form [formGroup]="commentForm" (submit)="save()">
+
+            <mat-form-field fxFlex="80%" fxFlex.xs="70%">
+                <textarea formControlName="comment" matInput></textarea>
+            </mat-form-field>
+            <button mat-raised-button color="primary" [disabled]="commentForm.invalid" type="submit" fxFlex="20%"
+                fxFlex.xs="30%">
+                Publish
+            </button>
+
+            <ap-vmessage text="Maximun size allowed is 300" *ngIf="commentForm.get('comment').errors?.maxlength">
+            </ap-vmessage>
+        </form>
+
     </section>
 </div>

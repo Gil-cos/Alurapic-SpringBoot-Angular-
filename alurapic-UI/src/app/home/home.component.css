@@ -1,12 +1,12 @@
 img {
     max-width: 100%;
+    width: 80%;
+    height: 80%;    
 }
 
-.card {
-    margin-top: 7%;
-    margin-left: 10%;
-    width: 80%;
-    height: 80%;
+.img-card {
+    margin-top: 6%;
+    margin-left: 5%;
 }
 
 @media screen and (min-width: 599px) {
