@@ -7,9 +7,6 @@ import { NewComment } from "../../../core/model/NewComment";
 import { PhotoComment } from "../../../core/model/photo-comment";
 import { PhotoService } from "../../photo/photo.service";
 
-
-
-
 @Component({
     selector: 'ap-photo-comments',
     templateUrl: './photo-comments.component.html',
